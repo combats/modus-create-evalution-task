@@ -1,10 +1,8 @@
 package com.modus.create.users;
 
 import com.google.gson.Gson;
-import com.modus.create.users.command.CreateUser;
 import com.modus.create.users.dao.UserDao;
 import com.modus.create.users.dao.UserRdbDao;
-import com.modus.create.users.entity.UserAuth;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.core.Message;
@@ -37,10 +35,21 @@ class UsersApplicationTests {
     @Test
     @Ignore
     public void test() {
-        System.out.println(gson.toJson(new CreateUser("test_login_1", "test_password")));
-        UserAuth user = UserAuth.builder().login("test login").password("test password").build();
-        userDao.save(user);
-        System.out.println();
+//        System.out.println(gson.toJson(new CreateUser("test_login_1", "test_password")));
+//        UserAuth user = UserAuth.builder().login("test login").password("test password").build();
+//        userDao.save(user);
+//        System.out.println();
+
+        QueueInformation queueInfo = rabbitAdmin.getQueueInfo("com.modus.create.get.token");
+
+        QueueInformation queueInfo2 = rabbitAdmin.getQueueInfo("com.modus.create.create.user");
+
+
+//        rabbitTemplate.convertAndSend("com.modus.create.get.token", "test name");
+//        System.out.println();
+//        rabbitTemplate.convertAndSend("com.modus.create.create.user", "test name");
+//        System.out.println();
+
     }
 
     @Test

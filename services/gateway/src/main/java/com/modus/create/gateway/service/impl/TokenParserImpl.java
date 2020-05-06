@@ -22,6 +22,6 @@ public class TokenParserImpl implements TokenParser {
                 .getBody();
 
         UUID userDetailsId = UUID.fromString(body.get("id", String.class));
-        return null;
+        return userDetailsId;
     }
 }
