@@ -25,6 +25,8 @@
     <modules>
         <module>services/users</module>
         <module>services/financial-transactions</module>
+        <module>services/financial-balance</module>
+        <module>services/gateway</module>
     </modules>
 
     <dependencies>

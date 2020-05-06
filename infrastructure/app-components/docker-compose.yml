@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+
+  users:
+    image: portainer/portainer
+    ports:
+      - "9000:9000"
+    #credentials: admin / OVl54Zzd
+    command:
+      -H unix:///var/run/docker.sock
+      --admin-password '$$2y$$05$$lq1JCom9zhZEgcnOD2w4jekHTCz0jV.ixuHzgIqrYZesFq.o7cN0q'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $HOME/com.gether.toolbox/certs:/certs
+      -
