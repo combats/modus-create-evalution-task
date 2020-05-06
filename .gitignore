@@ -1,0 +1,15 @@
+### Maven ###
+.mvn
+mvnw
+mvnw.cmd
+**/target/
+**/log/
+
+### Mac ###
+.DS_Store
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
