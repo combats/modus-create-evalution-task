@@ -1,5 +1,6 @@
 package com.modus.create.financialbalance.service;
 
+import com.modus.create.financial.ballance.command.ChangedFinancialBalance;
 import com.modus.create.financial.transactions.command.SaveFinancialTransaction;
 import com.modus.create.financialbalance.dao.FinancialBalanceDao;
 import com.modus.create.financialbalance.entity.FinancialBalance;
@@ -14,7 +15,7 @@ import java.util.UUID;
 import static com.modus.create.financial.transactions.command.TransactionType.EXPENSE;
 import static com.modus.create.financial.transactions.command.TransactionType.INCOME;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class FinancialBalanceChangerServiceTests {
@@ -51,9 +52,9 @@ class FinancialBalanceChangerServiceTests {
         when(financialBalanceDao.getByUserId(userId)).thenReturn(currentFinancialBalance);
         when(financialBalanceDao.save(expectedFinancialBalance)).thenReturn(expectedFinancialBalance);
 
-        FinancialBalance actualFinancialBalance = financialBalanceChangerService.changeBalance(financialTransaction);
+        ChangedFinancialBalance actualFinancialBalance = financialBalanceChangerService.changeBalance(financialTransaction);
 
-        assertEquals(expectedFinancialBalance, actualFinancialBalance);
+        assertEquals(25, actualFinancialBalance.getMonetaryBalance());
     }
 
     @Test
@@ -82,9 +83,9 @@ class FinancialBalanceChangerServiceTests {
         when(financialBalanceDao.getByUserId(userId)).thenReturn(currentFinancialBalance);
         when(financialBalanceDao.save(expectedFinancialBalance)).thenReturn(expectedFinancialBalance);
 
-        FinancialBalance actualFinancialBalance = financialBalanceChangerService.changeBalance(financialTransaction);
+        ChangedFinancialBalance actualFinancialBalance = financialBalanceChangerService.changeBalance(financialTransaction);
 
-        assertEquals(expectedFinancialBalance, actualFinancialBalance);
+        assertEquals(5, actualFinancialBalance.getMonetaryBalance());
     }
 
     @Test
@@ -112,9 +113,11 @@ class FinancialBalanceChangerServiceTests {
         when(financialBalanceDao.getByUserId(userId)).thenReturn(null);
         when(financialBalanceDao.save(financialBalanceToSave)).thenReturn(expectedFinancialBalance);
 
-        FinancialBalance actualFinancialBalance = financialBalanceChangerService.changeBalance(financialTransaction);
+        ChangedFinancialBalance actualFinancialBalance = financialBalanceChangerService.changeBalance(financialTransaction);
 
-        assertEquals(expectedFinancialBalance, actualFinancialBalance);
+        verify(financialBalanceDao, times(1)).save(financialBalanceToSave);
+
+        assertEquals(10, actualFinancialBalance.getMonetaryBalance());
     }
 
 }

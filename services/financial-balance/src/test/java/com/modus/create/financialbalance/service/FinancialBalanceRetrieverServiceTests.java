@@ -1,6 +1,7 @@
 package com.modus.create.financialbalance.service;
 
-import com.modus.create.financial.ballance.command.RetrievedFinancialBalance;
+import com.modus.create.financial.ballance.query.RetrieveFinancialBalance;
+import com.modus.create.financial.ballance.query.RetrievedFinancialBalance;
 import com.modus.create.financialbalance.dao.FinancialBalanceDao;
 import com.modus.create.financialbalance.entity.FinancialBalance;
 import com.modus.create.financialbalance.service.impl.FinancialBalanceRetrieverServiceImpl;
@@ -36,7 +37,7 @@ class FinancialBalanceRetrieverServiceTests {
 
         when(financialBalanceDao.getByUserId(userId)).thenReturn(currentFinancialBalance);
 
-        RetrievedFinancialBalance actualFinancialBalance = financialBalanceRetrieverService.retrieveBalance(userId);
+        RetrievedFinancialBalance actualFinancialBalance = financialBalanceRetrieverService.retrieveBalance(new RetrieveFinancialBalance(userId));
 
         assertEquals(15, actualFinancialBalance.getMonetaryBalance());
     }
@@ -47,7 +48,7 @@ class FinancialBalanceRetrieverServiceTests {
 
         when(financialBalanceDao.getByUserId(userId)).thenReturn(null);
 
-        RetrievedFinancialBalance actualFinancialBalance = financialBalanceRetrieverService.retrieveBalance(userId);
+        RetrievedFinancialBalance actualFinancialBalance = financialBalanceRetrieverService.retrieveBalance(new RetrieveFinancialBalance(userId));
 
         assertEquals(0, actualFinancialBalance.getMonetaryBalance());
     }

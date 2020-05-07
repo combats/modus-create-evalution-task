@@ -1,5 +1,6 @@
 package com.modus.create.financialbalance.service.impl;
 
+import com.modus.create.financial.ballance.command.ChangedFinancialBalance;
 import com.modus.create.financial.transactions.command.SaveFinancialTransaction;
 import com.modus.create.financial.transactions.command.TransactionType;
 import com.modus.create.financialbalance.dao.FinancialBalanceDao;
@@ -19,7 +20,7 @@ public class FinancialBalanceChangerServiceImpl implements FinancialBalanceChang
     }
 
     @Override
-    public FinancialBalance changeBalance(SaveFinancialTransaction financialTransaction) {
+    public ChangedFinancialBalance changeBalance(SaveFinancialTransaction financialTransaction) {
         FinancialBalance currentBalance = financialBalanceDao.getByUserId(financialTransaction.getUserId());
         if(currentBalance == null) {
             currentBalance = FinancialBalance.builder()
@@ -35,6 +36,7 @@ public class FinancialBalanceChangerServiceImpl implements FinancialBalanceChang
             currentBalance.setMonetaryBalance(currentBalance.getMonetaryBalance() - financialTransaction.getMonetaryValue());
         }
 
-        return financialBalanceDao.save(currentBalance);
+        FinancialBalance savedFinancialBalance = financialBalanceDao.save(currentBalance);
+        return new ChangedFinancialBalance(savedFinancialBalance.getMonetaryBalance());
     }
 }

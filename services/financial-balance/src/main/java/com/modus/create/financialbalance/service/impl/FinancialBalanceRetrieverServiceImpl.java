@@ -1,12 +1,11 @@
 package com.modus.create.financialbalance.service.impl;
 
-import com.modus.create.financial.ballance.command.RetrievedFinancialBalance;
+import com.modus.create.financial.ballance.query.RetrieveFinancialBalance;
+import com.modus.create.financial.ballance.query.RetrievedFinancialBalance;
 import com.modus.create.financialbalance.dao.FinancialBalanceDao;
 import com.modus.create.financialbalance.entity.FinancialBalance;
 import com.modus.create.financialbalance.service.FinancialBalanceRetrieverService;
 import org.springframework.stereotype.Service;
-
-import java.util.UUID;
 
 @Service
 public class FinancialBalanceRetrieverServiceImpl implements FinancialBalanceRetrieverService {
@@ -17,8 +16,8 @@ public class FinancialBalanceRetrieverServiceImpl implements FinancialBalanceRet
     }
 
     @Override
-    public RetrievedFinancialBalance retrieveBalance(UUID userId) {
-        FinancialBalance financialBalance = financialBalanceDao.getByUserId(userId);
+    public RetrievedFinancialBalance retrieveBalance(RetrieveFinancialBalance retrieveFinancialBalance) {
+        FinancialBalance financialBalance = financialBalanceDao.getByUserId(retrieveFinancialBalance.getUserId());
         int monetaryBalance = 0;
         if (financialBalance != null) {
             monetaryBalance = financialBalance.getMonetaryBalance();
