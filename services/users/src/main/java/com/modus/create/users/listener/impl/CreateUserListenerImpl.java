@@ -32,7 +32,7 @@ public class CreateUserListenerImpl implements CreateUserListener {
 
     @Override
     @RabbitListener(queues = QUEUE_NAME)
-    public String receive(String message) {
+    public String handle(String message) {
         CreateUser createUser = gson.fromJson(message, CreateUser.class);
         CreatedUser createdUser = userRegistryService.register(createUser);
         return gson.toJson(createdUser);

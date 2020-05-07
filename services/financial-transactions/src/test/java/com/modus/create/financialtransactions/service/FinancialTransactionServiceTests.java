@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
-public class FinancialTransactionServiceTests {
+class FinancialTransactionServiceTests {
 
     @Mock
     private FinancialTransactionDao financialTransactionDao;
@@ -29,8 +29,7 @@ public class FinancialTransactionServiceTests {
     private FinancialTransactionService financialTransactionService = new FinancialTransactionServiceImpl(financialTransactionDao, timeUtils);
 
     @Test
-    public void save_shouldSaveFinancialTransaction_withCreationTime() {
-
+    void save_shouldSaveFinancialTransaction_withCreationTime() {
         LocalDateTime creationTime = LocalDateTime.of(2020, 5, 7, 0, 0, 1);
         when(timeUtils.now()).thenReturn(creationTime);
         UUID userId = UUID.randomUUID();

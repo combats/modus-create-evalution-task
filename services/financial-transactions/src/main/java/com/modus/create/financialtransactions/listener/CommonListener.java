@@ -1,4 +1,4 @@
-package com.modus.create.users.listener;
+package com.modus.create.financialtransactions.listener;
 
 public interface CommonListener {
     String handle(String message);

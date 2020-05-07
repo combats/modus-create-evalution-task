@@ -31,7 +31,7 @@ public class GetTokenListenerImpl implements GetTokenListener {
 
     @Override
     @RabbitListener(queues = QUEUE_NAME)
-    public String receive(String message) {
+    public String handle(String message) {
         GetToken getToken = gson.fromJson(message, GetToken.class);
         Token token = userLoginService.login(getToken);
         return gson.toJson(token);
