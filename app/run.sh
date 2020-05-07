@@ -12,6 +12,13 @@ start)
    sleep 60
    echo "${green}Started${reset}"
    ;;
+start-infrastructure)
+   cd ../infrastructure
+   docker-compose -f architecture-components/docker-compose.yml up -d
+   echo "${red}Please wait 30 sec before everything started...${reset}"
+   sleep 30
+   echo "${green}Started${reset}"
+   ;;
 stop)
    cd ../infrastructure
    docker-compose -f architecture-components/docker-compose.yml -f app-components/docker-compose.yml stop
@@ -21,7 +28,7 @@ remove)
    docker-compose -f architecture-components/docker-compose.yml -f app-components/docker-compose.yml down
    ;;
 *)
-   echo "${red}Usage: $0 ${green}{start|stop|remove}${reset}"
+   echo "${red}Usage: $0 ${green}{start|start-infrastructure|stop|remove}${reset}"
 esac
 
 exit 0

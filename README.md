@@ -21,40 +21,48 @@ What things you need to install the software and how to install them
 
 A step by step series of examples that tell you how to get a env running
 
-Go to:
-
-```
-cd %project_parent_directory%/app
-```
-
-And execute
-
-```
-./build.sh
-```
-It will build project, run all tests
-
-### Running
-Go to:
+####Go to:
 
 ```bash
 cd %project_parent_directory%/app
 ```
 
-And execute
+####Execute
 
+```bash
+./build.sh
+```
+It will build project, run all tests
+
+### Running
+####Go to:
+
+```bash
+cd %project_parent_directory%/app
+```
+
+####Execute
+
+####To start app:
 ```bash
 ./run.sh start
 ```
 
 It will run all needed environment
 
-To stop app run
+####To start infrastructure-only:
+```bash
+./run.sh start-infrastructure
+```
+
+Now you can play with code, run microservices from IDE, build tests etc.
+
+####To stop app:
 
 ```bash
 ./run.sh stop
 ```
-To remove/cleanup app run
+####To remove/cleanup app run
 
 ```bash
 ./run.sh remove
@@ -62,7 +70,7 @@ To remove/cleanup app run
 
 ### Using
 
-Go to:
+####Go to:
 
 ```bash
 cd %project_parent_directory%/app
