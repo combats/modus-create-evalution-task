@@ -66,11 +66,11 @@ while getopts 'hrl:p:atj:m:iebu:' flag; do
     h)
     echo "${red}Usage: ...${reset}"
     echo "${red}Get help: ${green}./app.sh h${reset}"
-    echo "${red}Register: ${green}./app.sh -l ${blue}{wanted login}${green} -p ${blue}{wanted login} ${green}-r${reset}"
-    echo "${red}Login/Authorize: ${green}./app.sh -l ${blue}{your login}${green} -p ${blue}{your login} ${green}-a${reset}"
+    echo "${red}Register: ${green}./app.sh -l ${blue}{wanted login}${green} -p ${blue}{wanted password} ${green}-r${reset}"
+    echo "${red}Login/Authorize: ${green}./app.sh -l ${blue}{your login}${green} -p ${blue}{your password} ${green}-a${reset}"
     echo "${red}Make transaction: ${green}./app.sh -j ${blue}{your jwt token from auth}${green} -m ${blue}{wanted monetary INT value}${green} -i ${magenta}if you want add INCOME or ${green} -e ${magenta}if you want add EXPENSE ${green}-t${reset}"
     echo "${red}Get balance: ${green}./app.sh -j ${blue}{your jwt token from auth} ${green}-b${reset}"
-    echo "${red}Get balance: ${green}./app.sh -u ${blue}{your custom URL} ${magenta}if you need to define custom url in format: http://localhost:8010 with any other command${reset}"
+    echo "${red}Custom URL: ${green}./app.sh -u ${blue}{your custom URL} ${magenta}if you need to define custom url in format: http://localhost:8010 with any other command${reset}"
     exit 0
     ;;
     *)

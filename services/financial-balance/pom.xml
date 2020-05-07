@@ -11,7 +11,7 @@
     <artifactId>financial-balance</artifactId>
     <version>0.0.1</version>
     <name>financial-balance</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Service for calculating and retrieve financial balance</description>
 
     <properties>
         <java.version>1.8</java.version>

@@ -38,6 +38,9 @@ public class UserLoginServiceImpl implements UserLoginService {
     public Token login(GetToken getToken) {
         UserAuth user = userDao.findByLogin(getToken.getLogin());
         boolean isPasswordMatch = passwordEncoder.matches(getToken.getPassword(), user.getPassword());
+        if(!isPasswordMatch) {
+            return new Token("");
+        }
 
         Claims claims = Jwts.claims();
         claims.put("id", user.getId());

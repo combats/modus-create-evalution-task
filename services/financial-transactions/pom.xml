@@ -11,7 +11,7 @@
     <artifactId>financial-transactions</artifactId>
     <version>0.0.1</version>
     <name>financial-transactions</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Service for storing financial transaction</description>
 
     <properties>
         <java.version>1.8</java.version>

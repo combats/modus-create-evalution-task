@@ -13,7 +13,7 @@
     <artifactId>commands</artifactId>
     <version>0.0.1</version>
     <name>commands</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Library, contains main application commands and queries</description>
 
     <dependencies>
         <dependency>
