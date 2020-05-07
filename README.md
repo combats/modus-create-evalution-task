@@ -21,13 +21,13 @@ What things you need to install the software and how to install them
 
 A step by step series of examples that tell you how to get a env running
 
-####Go to:
+#### Go to:
 
 ```bash
 cd %project_parent_directory%/app
 ```
 
-####Execute
+#### Execute
 
 ```bash
 ./build.sh
@@ -35,34 +35,34 @@ cd %project_parent_directory%/app
 It will build project, run all tests
 
 ### Running
-####Go to:
+#### Go to:
 
 ```bash
 cd %project_parent_directory%/app
 ```
 
-####Execute
+#### Execute
 
-####To start app:
+#### To start app:
 ```bash
 ./run.sh start
 ```
 
 It will run all needed environment
 
-####To start infrastructure-only:
+#### To start infrastructure-only:
 ```bash
 ./run.sh start-infrastructure
 ```
 
 Now you can play with code, run microservices from IDE, build tests etc.
 
-####To stop app:
+#### To stop app:
 
 ```bash
 ./run.sh stop
 ```
-####To remove/cleanup app run
+#### To remove/cleanup app run
 
 ```bash
 ./run.sh remove
@@ -70,7 +70,7 @@ Now you can play with code, run microservices from IDE, build tests etc.
 
 ### Using
 
-####Go to:
+#### Go to:
 
 ```bash
 cd %project_parent_directory%/app
@@ -107,7 +107,6 @@ cd %project_parent_directory%/app
 ```bash
 ./app.sh -j {your jwt token from auth} -b
 ```
-hrl:p:atj:m:iebu:
 #### List of parameters:
 * ```-h```    help flag. Without value
 * ```-r```    register flag. Allow you to register. Without value. Should goes in the end of command
@@ -122,7 +121,7 @@ hrl:p:atj:m:iebu:
 * ```-b```    balance flag. Allow you to take a look at your balance. Without value. Should goes in the end of command
 * ```-u```    url flag. if you need to define custom url in format: http://localhost:8010 (without slash in the end) with any other command
 
-##Architecture
+## Architecture
 Application Architecture implements Microservice choreography pattern and CQRS pattern
 
 Application consist from 4 microservices:
@@ -132,14 +131,14 @@ Application consist from 4 microservices:
 * financial-balance - calculate balance, based on transactions and allow to retrieve it
 
 To prevent additional AWS configuration, and be more atomic in running and vendor-free, following 3rd party (architecture) components was chosen
-####DB
+#### DB
 PostgreSQL
-####Message Broker
+#### Message Broker
 RabbitMQ
-####Containerization
+#### Containerization
 Docker (with docker-compose)
 
-##Known Technical Debt
+## Known Technical Debt
 * Way more code should be covered with unit and integration tests
 * Service inside gateway should not notify different queues for making single transaction. Some sort of topic (when all consumers read single message) should be implemented
 * for real clustering - docker compose can't be applicable as solution. Docker swarm or Kubernetes should be chosen instead  
