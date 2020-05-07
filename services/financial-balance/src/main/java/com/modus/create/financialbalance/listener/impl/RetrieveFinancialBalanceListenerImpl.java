@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.annotation.PostConstruct;
 
 public class RetrieveFinancialBalanceListenerImpl implements RetrieveFinancialBalanceListener {
-    private static final String QUEUE_NAME = "com.modus.create.financial.balance.change";
+    private static final String QUEUE_NAME = "com.modus.create.financial.balance.retrieve";
 
     private RabbitAdmin rabbitAdmin;
     private FinancialBalanceRetrieverService financialBalanceRetrieverService;

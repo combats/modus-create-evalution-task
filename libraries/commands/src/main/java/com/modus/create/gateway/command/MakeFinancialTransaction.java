@@ -1,20 +1,20 @@
-package com.modus.create.financial.transactions.command;
+package com.modus.create.gateway.command;
 
+import com.modus.create.financial.transactions.command.TransactionType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
+import javax.validation.constraints.Min;
 
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class SaveFinancialTransaction {
+public class MakeFinancialTransaction {
 
-    private UUID userId;
-
+    @Min(value = 1)
     private int monetaryValue;
 
     private TransactionType type;
