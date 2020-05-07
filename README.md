@@ -85,27 +85,27 @@ cd %project_parent_directory%/app
 ##### Register new user
 
 ```bash
-./app.sh -l {wanted login} -p {wanted password} -r
+./app.sh -l %wanted_login% -p %wanted_password% -r
 ```
 
 ##### Login/Authorize (you will receive JWT token that needed for making transactions and getting balance)
 ```bash
-./app.sh -l {your login} -p {your password} -a
+./app.sh -l %your_login% -p %your_password% -a
 ```
 
 ##### Make income transaction (-i key) (value for -m parameter should be positive INTEGER).
 ```bash
-./app.sh -j {your jwt token from auth} -m {wanted monetary INT value} -i -t
+./app.sh -j %your jwt token from auth% -m %wanted monetary INT value% -i -t
 ```
 
 ##### Make expense transaction (-e key) (value for -m parameter should be positive INTEGER). You can have negative balance if you expense too much ;)
 ```bash
-./app.sh -j {your jwt token from auth} -m {wanted monetary INT value} -e -t
+./app.sh -j %your jwt token from auth% -m %wanted monetary INT value% -e -t
 ```
 
 ##### Check your balance
 ```bash
-./app.sh -j {your jwt token from auth} -b
+./app.sh -j %your jwt token from auth% -b
 ```
 #### List of parameters:
 * ```-h```    help flag. Without value
