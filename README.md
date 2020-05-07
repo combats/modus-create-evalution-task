@@ -143,6 +143,10 @@ Docker (with docker-compose)
 * Service inside gateway should not notify different queues for making single transaction. Some sort of topic (when all consumers read single message) should be implemented
 * for real clustering - docker compose can't be applicable as solution. Docker swarm or Kubernetes should be chosen instead  
 
+## Environments, was tested
+
+Application was run only on MacOs. Should works fine under Linux
+
 ## Authors
 
 * **Ihor Tsinko** - [email](igor.tsinko@gmail.com)
