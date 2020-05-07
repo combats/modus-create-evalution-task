@@ -145,7 +145,7 @@ Docker (with docker-compose)
 
 ## Authors
 
-* **Ihor Tsinko** - *Architect* - [email](igor.tsinko@gmail.com)
+* **Ihor Tsinko** - [email](igor.tsinko@gmail.com)
 
 ## License
 
