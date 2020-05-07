@@ -142,6 +142,7 @@ Docker (with docker-compose)
 * Way more code should be covered with unit and integration tests
 * Service inside gateway should not notify different queues for making single transaction. Some sort of topic (when all consumers read single message) should be implemented
 * for real clustering - docker compose can't be applicable as solution. Docker swarm or Kubernetes should be chosen instead  
+* Balance calculates asynchronously. Race condition might happen and balance might be inaccurate
 
 ## Environments, was tested
 
