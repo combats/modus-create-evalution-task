@@ -1,6 +1,7 @@
 package com.modus.create.financialtransactions.service;
 
 import com.modus.create.financial.transactions.command.SaveFinancialTransaction;
+import com.modus.create.financial.transactions.command.SavedFinancialTransaction;
 import com.modus.create.financialtransactions.dao.FinancialTransactionDao;
 import com.modus.create.financialtransactions.entity.FinancialTransaction;
 import com.modus.create.financialtransactions.service.impl.FinancialTransactionServiceImpl;
@@ -35,7 +36,7 @@ class FinancialTransactionServiceTests {
         UUID userId = UUID.randomUUID();
         FinancialTransaction transaction = FinancialTransaction.builder()
                 .userId(userId)
-                .monetaryValue(10.0f)
+                .monetaryValue(10)
                 .type(INCOME)
                 .creationTime(creationTime)
                 .build();
@@ -43,23 +44,23 @@ class FinancialTransactionServiceTests {
         FinancialTransaction expectedSavedTransaction = FinancialTransaction.builder()
                 .id(UUID.randomUUID())
                 .userId(userId)
-                .monetaryValue(10.0f)
+                .monetaryValue(10)
                 .type(INCOME)
                 .creationTime(creationTime)
                 .build();
 
         when(financialTransactionDao.save(transaction)).thenReturn(expectedSavedTransaction);
 
-        FinancialTransaction actualSavedTransaction = financialTransactionService.save(
+        SavedFinancialTransaction actualSavedTransaction = financialTransactionService.save(
                 SaveFinancialTransaction.builder()
                         .userId(userId)
-                        .monetaryValue(10.0f)
+                        .monetaryValue(10)
                         .type(INCOME)
                         .build()
         );
 
         verify(financialTransactionDao, times(1)).save(transaction);
-        assertEquals(expectedSavedTransaction, actualSavedTransaction);
+        assertEquals(expectedSavedTransaction.getId(), actualSavedTransaction.getId());
     }
 
 }

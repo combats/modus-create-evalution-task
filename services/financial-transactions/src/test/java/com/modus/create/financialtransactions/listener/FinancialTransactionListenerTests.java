@@ -2,6 +2,7 @@ package com.modus.create.financialtransactions.listener;
 
 import com.google.gson.Gson;
 import com.modus.create.financial.transactions.command.SaveFinancialTransaction;
+import com.modus.create.financial.transactions.command.SavedFinancialTransaction;
 import com.modus.create.financialtransactions.entity.FinancialTransaction;
 import com.modus.create.financialtransactions.listener.impl.FinancialTransactionListenerImpl;
 import com.modus.create.financialtransactions.service.FinancialTransactionService;
@@ -38,21 +39,21 @@ class FinancialTransactionListenerTests {
         LocalDateTime creationTime = LocalDateTime.of(2020, 5, 7, 0, 0, 1);
         SaveFinancialTransaction transactionToSave = SaveFinancialTransaction.builder()
                 .userId(userId)
-                .monetaryValue(10.0f)
+                .monetaryValue(10)
                 .type(INCOME)
                 .build();
 
         FinancialTransaction expectedSavedTransaction = FinancialTransaction.builder()
                 .id(UUID.randomUUID())
                 .userId(userId)
-                .monetaryValue(10.0f)
+                .monetaryValue(10)
                 .type(INCOME)
                 .creationTime(creationTime)
                 .build();
 
-        when(financialTransactionService.save(transactionToSave)).thenReturn(expectedSavedTransaction);
+        when(financialTransactionService.save(transactionToSave)).thenReturn(new SavedFinancialTransaction(expectedSavedTransaction.getId()));
 
         String result = financialTransactionListener.handle(gson.toJson(transactionToSave));
-        assertEquals(gson.toJson(expectedSavedTransaction), result);
+        assertEquals(gson.toJson(new SavedFinancialTransaction(expectedSavedTransaction.getId())), result);
     }
 }

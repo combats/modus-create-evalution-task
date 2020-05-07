@@ -2,7 +2,7 @@ package com.modus.create.financialtransactions.listener.impl;
 
 import com.google.gson.Gson;
 import com.modus.create.financial.transactions.command.SaveFinancialTransaction;
-import com.modus.create.financialtransactions.entity.FinancialTransaction;
+import com.modus.create.financial.transactions.command.SavedFinancialTransaction;
 import com.modus.create.financialtransactions.listener.FinancialTransactionListener;
 import com.modus.create.financialtransactions.service.FinancialTransactionService;
 import org.springframework.amqp.core.Queue;
@@ -37,7 +37,7 @@ public class FinancialTransactionListenerImpl implements FinancialTransactionLis
     @RabbitListener(queues = QUEUE_NAME)
     public String handle(String message) {
         SaveFinancialTransaction transactionToSave = gson.fromJson(message, SaveFinancialTransaction.class);
-        FinancialTransaction transaction = financialTransactionService.save(transactionToSave);
+        SavedFinancialTransaction transaction = financialTransactionService.save(transactionToSave);
         return gson.toJson(transaction);
     }
 }

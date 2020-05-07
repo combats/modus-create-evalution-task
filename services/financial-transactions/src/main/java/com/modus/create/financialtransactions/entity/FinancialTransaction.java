@@ -23,7 +23,7 @@ public class FinancialTransaction {
 
     private UUID userId;
 
-    private float monetaryValue;
+    private int monetaryValue;
 
     @Enumerated(EnumType.STRING)
     private TransactionType type;

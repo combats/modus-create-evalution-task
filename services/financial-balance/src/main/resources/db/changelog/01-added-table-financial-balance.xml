@@ -9,13 +9,9 @@
                 <constraints primaryKey="true" />
             </column>
             <column name="user_id" type="UUID">
-                <constraints nullable="false" />
+                <constraints unique="true" nullable="false" />
             </column>
-            <column name="monetary_value" type="INT"/>
-            <column name="type" type="VARCHAR(50)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="creation_time" type="TIMESTAMP"/>
+            <column name="monetary_balance" type="INT"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
