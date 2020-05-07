@@ -1,6 +1,8 @@
 package com.modus.create.users;
 
 import com.google.gson.Gson;
+import com.modus.create.financial.transactions.command.TransactionType;
+import com.modus.create.gateway.command.MakeFinancialTransaction;
 import com.modus.create.users.dao.UserDao;
 import com.modus.create.users.dao.UserRdbDao;
 import jdk.nashorn.internal.ir.annotations.Ignore;
@@ -52,6 +54,10 @@ class UsersApplicationTests {
 
 //          rabbitTemplate.convertAndSend("com.modus.test.queue", "test message");
 
+        System.out.println(gson.toJson(
+                MakeFinancialTransaction.builder().monetaryValue(10).type(TransactionType.INCOME).build()
+                )
+        );
 
     }
 

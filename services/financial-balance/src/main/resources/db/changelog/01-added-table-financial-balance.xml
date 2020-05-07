@@ -4,7 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
     <changeSet author="Ihor Tsinko" id="01">
-        <createTable tableName="financial_transaction">
+        <createTable tableName="financial_balance">
             <column name="id" type="UUID">
                 <constraints primaryKey="true" />
             </column>

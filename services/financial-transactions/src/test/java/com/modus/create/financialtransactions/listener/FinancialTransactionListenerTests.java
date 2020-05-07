@@ -16,8 +16,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 import static com.modus.create.financial.transactions.command.TransactionType.INCOME;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @SpringBootTest
 class FinancialTransactionListenerTests {
@@ -53,7 +52,8 @@ class FinancialTransactionListenerTests {
 
         when(financialTransactionService.save(transactionToSave)).thenReturn(new SavedFinancialTransaction(expectedSavedTransaction.getId()));
 
-        String result = financialTransactionListener.handle(gson.toJson(transactionToSave));
-        assertEquals(gson.toJson(new SavedFinancialTransaction(expectedSavedTransaction.getId())), result);
+        financialTransactionListener.handle(gson.toJson(transactionToSave));
+
+        verify(financialTransactionService, times(1)).save(transactionToSave);
     }
 }

@@ -9,9 +9,11 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+@Component
 public class RetrieveFinancialBalanceListenerImpl implements RetrieveFinancialBalanceListener {
     private static final String QUEUE_NAME = "com.modus.create.financial.balance.retrieve";
 
