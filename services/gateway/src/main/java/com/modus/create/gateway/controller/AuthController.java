@@ -1,10 +1,10 @@
 package com.modus.create.gateway.controller;
 
-import com.modus.create.gateway.command.CreateUser;
-import com.modus.create.gateway.command.CreatedUser;
-import com.modus.create.gateway.command.GetToken;
-import com.modus.create.gateway.command.Token;
 import com.modus.create.gateway.service.AuthService;
+import com.modus.create.users.command.CreateUser;
+import com.modus.create.users.command.CreatedUser;
+import com.modus.create.users.command.GetToken;
+import com.modus.create.users.command.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

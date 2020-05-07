@@ -39,16 +39,19 @@ class UsersApplicationTests {
 //        UserAuth user = UserAuth.builder().login("test login").password("test password").build();
 //        userDao.save(user);
 //        System.out.println();
-
-        QueueInformation queueInfo = rabbitAdmin.getQueueInfo("com.modus.create.get.token");
-
-        QueueInformation queueInfo2 = rabbitAdmin.getQueueInfo("com.modus.create.create.user");
+//
+//        QueueInformation queueInfo = rabbitAdmin.getQueueInfo("com.modus.create.get.token");
+//
+//        QueueInformation queueInfo2 = rabbitAdmin.getQueueInfo("com.modus.create.create.user");
 
 
 //        rabbitTemplate.convertAndSend("com.modus.create.get.token", "test name");
 //        System.out.println();
 //        rabbitTemplate.convertAndSend("com.modus.create.create.user", "test name");
 //        System.out.println();
+
+//          rabbitTemplate.convertAndSend("com.modus.test.queue", "test message");
+
 
     }
 

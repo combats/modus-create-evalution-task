@@ -1,4 +1,4 @@
-package com.modus.create.users.utils;
+package com.modus.create.utils;
 
 import org.joda.time.DateTime;
 import org.joda.time.DateTimeZone;
@@ -16,7 +16,7 @@ import static org.hamcrest.Matchers.lessThanOrEqualTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-@SpringBootTest
+@SpringBootTest(classes = UtilsConfiguration.class)
 public class TimeUtilsTest {
 
     @Autowired

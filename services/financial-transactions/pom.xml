@@ -41,6 +41,26 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
+        <!--THIRD PARTY-->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+        </dependency>
+
+        <!--COMMANDS-->
+        <dependency>
+            <groupId>com.modus.create</groupId>
+            <artifactId>commands</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <!--UTILS-->
+        <dependency>
+            <groupId>com.modus.create</groupId>
+            <artifactId>utils</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

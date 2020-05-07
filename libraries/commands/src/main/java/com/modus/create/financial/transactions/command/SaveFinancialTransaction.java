@@ -1,4 +1,4 @@
-package com.modus.create.gateway.command;
+package com.modus.create.financial.transactions.command;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,6 +11,11 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreatedUser {
-    private UUID id;
+public class SaveFinancialTransaction {
+
+    private UUID userId;
+
+    private float monetaryValue;
+
+    private TransactionType type;
 }

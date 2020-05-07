@@ -1,4 +1,4 @@
-package com.modus.create.users.utils;
+package com.modus.create.utils;
 
 import org.springframework.stereotype.Component;
 

@@ -5,7 +5,7 @@ import com.modus.create.users.command.Token;
 import com.modus.create.users.dao.UserDao;
 import com.modus.create.users.entity.UserAuth;
 import com.modus.create.users.service.UserLoginService;
-import com.modus.create.users.utils.TimeUtils;
+import com.modus.create.utils.TimeUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.beans.factory.annotation.Autowired;

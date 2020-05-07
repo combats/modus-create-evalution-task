@@ -23,6 +23,8 @@
     </properties>
 
     <modules>
+        <module>libraries/commands</module>
+        <module>libraries/utils</module>
         <module>services/users</module>
         <module>services/financial-transactions</module>
         <module>services/financial-balance</module>
