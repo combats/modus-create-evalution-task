@@ -15,7 +15,7 @@
 
     <packaging>pom</packaging>
 
-    <name>budget</name>
+    <name>ModusCreate</name>
     <description>Budget application to calculate finances</description>
 
     <properties>

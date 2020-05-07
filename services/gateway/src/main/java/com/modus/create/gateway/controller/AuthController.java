@@ -24,7 +24,7 @@ public class AuthController {
     }
 
     @RequestMapping(method = POST, value = "/auth/login")
-    public Token register(@RequestBody GetToken getToken) {
+    public Token login(@RequestBody GetToken getToken) {
         return authService.login(getToken);
     }
 }
